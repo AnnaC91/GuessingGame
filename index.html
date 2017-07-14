@@ -1,58 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+
+<head>
     <title>Guessing Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-    <!-- Bootstrap and CSS here-->
-    <link rel='stylesheet' type='text/css' href = style.css>
-    <link rel='stylesheet' type='text/css' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-  </head>
-  <body>
-
-      <div id='app'>
-
-        <div id='headers'>
-          <!-- Title and subtitles! -->
-          <h1>Guessing Game</h1>
-          <h2>Take a guess between 1-100!</h2>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>Guessing Game</h1>
+            <h2>Take a guess between 1-100!</h2>
         </div>
-
-        <div id='main'>
-          <div id='input-parent'>
-            <!-- Player's guess input, and submit button -->
-            <input id='player-input' stlye='center' placeholder='#' maxlength='3'>
-            <button id='submit'>Go!</button>
-          </div>
-
-          <div id='guesses'>
-            <!-- unordered list of guesses -->
-          </div>
-
-          <div id="menu-btns">
-            <!-- reset and hint buttons -->
-          </div>
-        </div>
-      </div>
-
-
-
-    <div id='footer'>
-        <div>
-          <div class=''>
-            <img src='fa-logo@2x.png'></img>
-          </div>
-
-          <div class=''>
-            <h4>Project by Anna Chen</h4>
-          </div>
-
-          <div class=''>
-            <img src='grace_hopper_academy.png'></img>
-          </div>
-
-
+        <div class="game">
+            <div class="input">
+                <input id="playerinput" style="center" placeholder="#" maxlength="3">
+                <button id="submit">Go!</button>
+            </div>
+            <div class="menu">
+                <button id="reset" class="buttonwarning">Reset</button>
+                <button id="hint" class="buttoninfo">Hint</button>
+            </div>
+            <div class="guesses">
+                <ul class="guesslist">
+                    <li class="guess">-</li>
+                    <li class="guess">-</li>
+                    <li class="guess">-</li>
+                    <li class="guess">-</li>
+                    <li class="guess">-</li>
+                </ul>
+            </div>
         </div>
     </div>
-
-  </body>
-</html>
+    
+    <div class="footer">
+        <h4>Project by Anna Chen</h4>
+        <div class="logos">
+            <ul class="logolist">
+                <li class="logo"><img src="fa-logo@2x.png"></img></li>
+                <li class="logo"><img src="grace_hopper_academy.png"></img></li>
+            </ul>
+        </div>
+    </div>
+</body>
