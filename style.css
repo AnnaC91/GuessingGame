@@ -111,10 +111,10 @@
             border: solid 5px rgba(255,100,100,0.7);
             width: 35px;
             height: 35px;
-            background-color: black;
+            background-color: white;
             font-size: 25px;
             text-align: center;
-            color: white;
+            color: rgb(255,100,100);
         }
         img {
             display: inline-block;
