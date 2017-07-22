@@ -83,6 +83,8 @@ newGame = function(){
     return new Game()
 }
 
-$(document).ready(
-    function() { console.log('hello') }
-)
+$(document).ready(function() {
+    $('button#submit').on("click", function(){
+        alert('clicked')
+    });
+})
