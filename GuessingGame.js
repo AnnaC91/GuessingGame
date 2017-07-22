@@ -83,3 +83,6 @@ newGame = function(){
     return new Game()
 }
 
+$(document).ready(
+    function() { console.log('hello') }
+)
