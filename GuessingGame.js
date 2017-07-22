@@ -83,8 +83,27 @@ newGame = function(){
     return new Game()
 }
 
+function attempt(game){
+    var guess = $('#playerinput').val();
+    $('#playerinput').val("");
+    var nguess = Number(guess)
+    if (nguess===NaN){
+        nguess = guess;
+    } 
+    console.log(game.playersGuessSubmission(nguess))
+}
+
 $(document).ready(function() {
-    $('button#submit').on("click", function(){
-        alert('clicked')
+    var game = new Game();
+
+    $('#submit').click(function(){
+        attempt(game);
     });
+
+    $('#playerinput').keypress(function(event){
+        var key = event.which;
+        if (key === 13){//'ENTER' key
+            attempt(game);
+        }
+    })
 })
