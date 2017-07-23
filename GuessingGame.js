@@ -46,15 +46,27 @@ Game.prototype.playersGuessSubmission = function(n){
 Game.prototype.checkGuess = function(){
     var message = "";
     if (this.playersGuess===this.winningNumber) {
+        $('h2').text('Click "Reset" to play again.')
+        $('#submit','#hint').attr("disabled", true)
         message += "You Win!"
     } else if (this.pastGuesses.includes(this.playersGuess)){
-        message += "You have already guessed that number."
+        $('h2').text('Please guess again.')
+        message += "Duplicate Guess."
     } else if (this.pastGuesses.indexOf(this.playersGuess)===-1){
         this.pastGuesses.push(this.playersGuess)
+        var ith = this.pastGuesses.length
+        $('ul.guesslist li:nth-child('+ith+')').text(this.playersGuess)
         if (this.pastGuesses.length===5){
+            $('h2').text('Click "Reset" to play again.')
+            $('#submit','#hint').attr("disabled", true)
             message += "You Lose."
         } else {
             var diff = this.difference();
+            if (this.isLower()===true){
+                $('h2').text('Take a larger guess.')
+            } else if (this.isLower()===false){
+                $('h2').text('Take a smaller guess.')
+            }
             if (diff<10){
                 message += 'You\'re burning up!'
             } else if (diff<25){
@@ -90,7 +102,7 @@ function attempt(game){
     if (nguess===NaN){
         nguess = guess;
     } 
-    console.log(game.playersGuessSubmission(nguess))
+    $('h1').text(game.playersGuessSubmission(nguess))
 }
 
 $(document).ready(function() {
