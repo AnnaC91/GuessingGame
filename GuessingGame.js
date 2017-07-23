@@ -47,7 +47,7 @@ Game.prototype.checkGuess = function(){
     var message = "";
     if (this.playersGuess===this.winningNumber) {
         $('h2').text('Click "Reset" to play again.')
-        $('#submit','#hint').attr("disabled", true)
+        $('#submit, #hint').attr("disabled", true)
         message += "You Win!"
     } else if (this.pastGuesses.includes(this.playersGuess)){
         $('h2').text('Please guess again.')
@@ -58,7 +58,7 @@ Game.prototype.checkGuess = function(){
         $('ul.guesslist li:nth-child('+ith+')').text(this.playersGuess)
         if (this.pastGuesses.length===5){
             $('h2').text('Click "Reset" to play again.')
-            $('#submit','#hint').attr("disabled", true)
+            $('#submit, #hint').attr("disabled", true)
             message += "You Lose."
         } else {
             var diff = this.difference();
@@ -117,5 +117,22 @@ $(document).ready(function() {
         if (key === 13){//'ENTER' key
             attempt(game);
         }
+    })
+
+    $('#hint').click(function(){
+        var hint = game.provideHint();
+        if (game.pastGuesses.length<3){
+            $('h1').text('It\'s too early for a hint!')
+        } else {
+            $('h1').text('It\'s either '+hint[0]+', '+hint[1]+', or '+hint[2]+'.')
+        }
+    })
+
+    $('#reset').click(function(){
+        game = new Game();
+        $('#submit, #hint').attr("disabled", false)
+        $('h1').text('Guessing Game')
+        $('h2').text('Take a guess between 1-100!')
+        $('li.guess').text('-')
     })
 })
